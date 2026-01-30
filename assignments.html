@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignments</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>EduPortal</h2>
+  <ul>
+    <li><a href="index.html">Dashboard</a></li>
+    <li><a class="active" href="assignments.html">Assignments</a></li>
+    <li><a href="attendance.html">Attendance</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="profile.html">Profile</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <h2>Add Assignment</h2>
+
+  <div class="card">
+    <input id="a-title" placeholder="Assignment Title"><br><br>
+    <input id="a-subject" placeholder="Subject"><br><br>
+    <input id="a-due" type="date"><br><br>
+    <button onclick="addAssignment()">➕ Add Assignment</button>
+  </div>
+
+  <h2 style="margin-top:40px;">Assignments</h2>
+
+  <div class="grid" id="assignment-list"></div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+

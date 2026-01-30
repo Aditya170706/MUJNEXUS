@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Faculty List</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<script src="js/script.js"></script>
+<script>checkAuth()</script>
+
+<nav>
+  <h2>EduPortal</h2>
+  <ul>
+    <li><a href="index.html">Dashboard</a></li>
+    <li><a class="active" href="teachers.html">Faculty</a></li>
+    <li><a href="#" onclick="logout()">Logout</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+  <h2>Faculty List</h2>
+
+  <!-- ADD TEACHER -->
+  <div class="card" style="max-width:420px;">
+    <input id="t-name" placeholder="Teacher Name"><br><br>
+    <input id="t-subject" placeholder="Subject"><br><br>
+    <button onclick="addTeacher()">➕ Add Teacher</button>
+  </div>
+
+  <!-- FACULTY CARDS -->
+  <div class="grid" id="teacher-list" style="margin-top:40px;">
+    <!-- Dynamic teacher cards load here -->
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 EduPortal | Faculty Feedback Module</p>
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>

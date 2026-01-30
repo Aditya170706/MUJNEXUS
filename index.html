@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EduPortal | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>EduPortal</h2>
+  <ul>
+    <li><a class="active" href="index.html">Dashboard</a></li>
+    <li><a href="attendance.html">Attendance</a></li>
+    <li><a href="assignments.html">Assignments</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="profile.html">Profile</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Smart <span>Campus Dashboard</span></h1>
+  <p>
+    Centralized academic overview for attendance, assignments,
+    and student performance.
+  </p>
+  <button onclick="location.href='assignments.html'">
+    View Assignments
+  </button>
+</section>
+
+<div class="container">
+
+  <!-- ================= ACADEMIC OVERVIEW ================= -->
+  <h2>Academic Overview</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Total Subjects</h3>
+      <h1 id="total-subjects">0</h1>
+      <p class="muted">This semester</p>
+    </div>
+
+    <div class="card">
+      <h3>Overall Attendance</h3>
+      <h1 id="overall-attendance">--%</h1>
+      <p class="muted">Across all subjects</p>
+    </div>
+
+    <div class="card">
+      <h3>Status</h3>
+      <h1 id="attendance-status">--</h1>
+      <p class="muted">Eligibility</p>
+    </div>
+  </div>
+
+  <!-- ================= ASSIGNMENTS OVERVIEW ================= -->
+  <h2 style="margin-top:50px;">Assignments Overview</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>📘 Total Assignments</h3>
+      <h1 id="total-assignments">0</h1>
+      <p class="muted">All subjects</p>
+    </div>
+
+    <div class="card">
+      <h3>⏳ Pending</h3>
+      <h1 id="pending-assignments">0</h1>
+      <p class="muted">Need submission</p>
+    </div>
+
+    <div class="card">
+      <h3>✅ Submitted</h3>
+      <h1 id="submitted-assignments">0</h1>
+      <p class="muted">Completed</p>
+    </div>
+
+  </div>
+
+  <!-- ================= QUICK ACTIONS ================= -->
+  <h2 style="margin-top:50px;">Quick Actions</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>📊 Attendance</h3>
+      <p>Mark attendance and manage subjects</p>
+      <br>
+      <button onclick="location.href='attendance.html'">
+        Open Attendance
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>📝 Assignments</h3>
+      <p>Add, submit and track assignments</p>
+      <br>
+      <button onclick="location.href='assignments.html'">
+        Manage Assignments
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>👨‍🏫 Faculty</h3>
+      <p>View teacher details and subjects</p>
+      <br>
+      <button onclick="location.href='teachers.html'">
+        Teacher Info
+      </button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Team Gangster Certified | Not To Be Used Without Permission</p>
+  
+</footer>
+
+<!-- CORE SCRIPT -->
+<script src="js/script.js"></script>
+
+<!-- DASHBOARD CALCULATIONS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const data = JSON.parse(localStorage.getItem("eduData"));
+  if (!data || !data.attendance) return;
+
+  // Attendance summary
+  let total = 0, attended = 0;
+  Object.values(data.attendance).forEach(s => {
+    total += s.total;
+    attended += s.attended;
+  });
+
+  if (total > 0) {
+    const percent = Math.round((attended / total) * 100);
+    document.getElementById("overall-attendance").innerText = percent + "%";
+
+    const status = document.getElementById("attendance-status");
+    if (percent >= 75) {
+      status.innerText = "Safe";
+      status.style.color = "#22c55e";
+    } else {
+      status.innerText = "Shortage";
+      status.style.color = "#ef4444";
+    }
+  }
+});
+</script>
+
+</body>
+</html>

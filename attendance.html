@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attendance</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <h2>EduPortal</h2>
+  <ul>
+    <li><a href="index.html">Dashboard</a></li>
+    <li><a class="active" href="attendance.html">Attendance</a></li>
+    <li><a href="assignments.html">Assignments</a></li>
+    <li><a href="teachers.html">Teachers</a></li>
+    <li><a href="profile.html">Profile</a></li>
+    
+  </ul>
+</nav>
+
+<div class="container">
+
+  <button onclick="addSubject()">➕ Add Subject</button>
+  <br><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Total Classes</th>
+        <th>Attended</th>
+        <th>%</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="attendance-body"></tbody>
+  </table>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
